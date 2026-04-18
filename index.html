@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Well Soon ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+    background: linear-gradient(135deg,#0f0f1a,#1a1a2e);
+    color:#fff;
+}
+
+/* MUSIC */
+.music-control{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:1000;
+}
+.music-control button{
+    background:#ff4d6d;
+    border:none;
+    padding:10px 18px;
+    border-radius:25px;
+    color:white;
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:42px;
+    background:linear-gradient(90deg,#ff4d6d,#ff9a9e);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    margin-top:10px;
+    opacity:0.8;
+}
+
+.btn{
+    margin-top:20px;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+}
+
+/* GALLERY */
+.gallery{
+    padding:40px 20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    border-radius:18px;
+    overflow:hidden;
+    background:#111;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+    transition:0.4s;
+}
+
+/* IMAGE BOX */
+.img-box{
+    position:relative;
+    width:100%;
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#000;
+}
+
+/* BLUR BACKGROUND */
+.img-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    filter:blur(25px);
+    transform:scale(1.2);
+    z-index:1;
+}
+
+/* IMAGE */
+.img-box img{
+    position:relative;
+    z-index:2;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+}
+
+/* TEXT */
+.info{
+    padding:12px;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+}
+
+/* HOVER */
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 40px rgba(255,77,109,0.4);
+}
+
+/* SECTION */
+.section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.glass{
+    max-width:600px;
+    margin:auto;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+}
+
+/* SHAYARI */
+.shayari-box{
+    margin-top:15px;
+    line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    opacity:0.6;
+}
+
+/* MOBILE */
+@media(max-width:500px){
+    .hero h1{font-size:28px;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<div class="music-control">
+    <button onclick="toggleMusic()">🎵 Play</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="bekhayali.mp3" type="audio/mp3">
+</audio>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>🌸 Hello Dear Gaydatre 🌸</h1>
+    <p>I miss you so much ❤️🥺</p>
+    <button class="btn" onclick="scrollDown()">See Memories 💌</button>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+
+<div class="card">
+    <div class="img-box" style="background-image:url('gayu1.jpeg')">
+        <img src="gayu1.jpeg">
+    </div>
+    <div class="info">Her Smile 😊</div>
+</div>
+
+<div class="card">
+    <div class="img-box" style="background-image:url('gayu2.jpeg')">
+        <img src="gayu2.jpeg">
+    </div>
+    <div class="info">Beautiful Moments 💖</div>
+</div>
+
+<div class="card">
+    <div class="img-box" style="background-image:url('gayu3.jpeg')">
+        <img src="gayu3.jpeg">
+    </div>
+    <div class="info">Memories ✨</div>
+</div>
+
+<div class="card">
+    <div class="img-box" style="background-image:url('gayu4.jpeg')">
+        <img src="gayu4.jpeg">
+    </div>
+    <div class="info">Miss You 🥺</div>
+</div>
+
+</section>
+
+<!-- POETRY -->
+<section class="section">
+<div class="glass">
+<h2>🌿 Marathi Poetry 🌿</h2>
+<p>
+तू नसलीस की सगळं काही रिकामं वाटतं,<br><br>
+तुझ्याशिवाय प्रत्येक क्षण अधुरा वाटतो…<br><br>
+लवकर बरी हो ❤️
+</p>
+</div>
+</section>
+
+<!-- SHAYARI -->
+<section class="section">
+<div class="glass">
+
+<h2>✨ Hindi Shayari ✨</h2>
+
+<p class="shayari-box" id="shayariBox">
+तेरे बिना ये दिन अधूरा सा लगता है...
+</p>
+
+<button class="btn" onclick="nextShayari()">Next ➡️</button>
+
+</div>
+</section>
+
+<footer>
+Made with ❤️ for you
+</footer>
+
+<script>
+
+/* MUSIC */
+let playing=false;
+const music=document.getElementById("bgMusic");
+
+function toggleMusic(){
+    if(playing){
+        music.pause();
+        event.target.innerText="🎵 Play";
+    }else{
+        music.play();
+        event.target.innerText="⏸ Pause";
+    }
+    playing=!playing;
+}
+
+/* SCROLL */
+function scrollDown(){
+    window.scrollTo({top:window.innerHeight,behavior:"smooth"});
+}
+
+/* SHAYARI */
+const shayari=[
+"तेरे बिना ये दिन अधूरा सा लगता है...",
+"जल्दी ठीक हो जा, दिल तेरा इंतज़ार करता है...",
+"तेरी हँसी मेरी सबसे बड़ी खुशी है...",
+"हर दर्द तुझसे दूर हो जाए...",
+"तू मुस्कुरा दे तो दुनिया हसीन लगती है...",
+"तेरे बिना दिल कहीं लगता नहीं...",
+"तू जल्दी ठीक हो जा बस यही दुआ है...",
+"तेरी यादें हर पल साथ रहती हैं...",
+"तू ही मेरी दोस्त, तू ही मेरी खुशी है...",
+"तेरे बिना हर खुशी अधूरी लगती है...",
+"बस जल्दी ठीक हो जा, यही दिल की बात है..."
+];
+
+let i=0;
+function nextShayari(){
+    i=(i+1)%shayari.length;
+    document.getElementById("shayariBox").innerText=shayari[i];
+}
+
+</script>
+
+</body>
+</html>
